@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Kenangan</title>
+    
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="gallery-page-body">
+
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+
+    <div class="gallery-container">
+        <h1>Koleksi Kenangan Kita</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="Kenangan.jpg" alt="Kenangan 1">
+            </div>
+            <div class="gallery-item">
+                <img src="Kenangan2.jpg" alt="Kenangan 2">
+            </div>
+            <div class="gallery-item">
+                <img src="Kenangan3.jpg" alt="Kenangan 3">
+            </div>
+            <div class="gallery-item">
+                <img src="Kenangan4.jpg" alt="Kenangan 4">
+            </div>
+            <div class="gallery-item">
+                <img src="Kenangan5.jpg" alt="Kenangan 5">
+            </div>
+            <div class="gallery-item">
+                <img src="Kenangan6.jpg" alt="Kenangan 6">
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            lightboxClose.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    lightbox.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
